@@ -19,7 +19,6 @@ pipeline {
             sh"""
                 docker run -i -d --name "chatboot-container" --network host chatboot npm start
                 sleep 10
-                curl http://localhost:5555
                 docker rm "chatboot-container"
             """
          }
