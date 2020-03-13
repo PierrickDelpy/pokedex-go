@@ -14,5 +14,15 @@ pipeline {
             """
          }
       }
+      stage('deploy') {
+         steps {
+            sh"""
+                docker run -i --name "chatboot-container" chatboot npm start
+                sleep 10s
+                curl http://localhost:5555
+                docker rm "chatboot-container"
+            """
+         }
+      }
    }
 }
