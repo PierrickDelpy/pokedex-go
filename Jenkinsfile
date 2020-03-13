@@ -10,7 +10,7 @@ pipeline {
       stage('test') {
          steps {
             sh"""
-                docker run -it --rm chatboot npm run test
+                docker run -i --rm chatboot npm run test
             """
          }
       }
