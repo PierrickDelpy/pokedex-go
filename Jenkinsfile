@@ -17,9 +17,9 @@ pipeline {
       stage('deploy') {
          steps {
             sh"""
-                docker run -i -d --name "chatboot-container" --network host chatboot npm start
-                sleep 10
-                docker rm "chatboot-container"
+                docker run -i -d --name "chatboot-container" -p 5555:5555 --network host chatboot npm start
+                sleep 20
+                docker rm -f "chatboot-container"
             """
          }
       }
